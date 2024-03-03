@@ -13,17 +13,22 @@ dotenv.config({
     path: './env'
 })
 
+connectDB()
+// .then(()=>{
+//     application.listen(process.env.PORT || 8000,()=>{
+//         console.log("server is running")
+//     })
+// })
+// .catch((err)=>{
+//     console.log("mongodb connection failed",err)
+// })
+
+
 // as early as possible in your application import and configure dotenv : env
 //har jagah uska acces mil jaye 
 
 
-
-
-
-
-
-
-
+//-------------------------------------
 
 //first approcah is make a if else n then even a function and agar databse kahi aur hei toh uska liya async
 
