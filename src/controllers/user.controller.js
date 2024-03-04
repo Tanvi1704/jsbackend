@@ -246,8 +246,6 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 const changeCurrentPassword = asyncHandler(async(req, res) => {
     const {oldPassword, newPassword} = req.body
 
-    
-
     const user = await User.findById(req.user?._id)
     const isPasswordCorrect = await user.isPasswordCorrect(oldPassword)
 
@@ -306,7 +304,6 @@ const updateUserAvatar = asyncHandler(async(req, res) => {
     }
 
     //TODO: delete old image - assignment
-
     const avatar = await uploadOnCloudinary(avatarLocalPath)
 
     if (!avatar.url) {
@@ -339,12 +336,10 @@ const updateUserCoverImage = asyncHandler(async(req, res) => {
     }
 
     //TODO: delete old image - assignment
-
-
     const coverImage = await uploadOnCloudinary(coverImageLocalPath)
 
     if (!coverImage.url) {
-        throw new ApiError(400, "Error while uploading on avatar")
+        throw new ApiError(400, "Error while uploading image")
         
     }
 
@@ -498,11 +493,11 @@ export {
     loginUser,
     logoutUser,
     refreshAccessToken,
-    // changeCurrentPassword,
-    // getCurrentUser,
-    // updateAccountDetails,
-    // updateUserAvatar,
-    // updateUserCoverImage,
+    changeCurrentPassword,
+    getCurrentUser,
+    updateAccountDetails,
+    updateUserAvatar,
+    updateUserCoverImage,
     // getUserChannelProfile,
     // getWatchHistory
 }
